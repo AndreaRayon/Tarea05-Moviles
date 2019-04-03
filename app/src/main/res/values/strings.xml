@@ -30,4 +30,16 @@
     <!-- Item Product -->
     <string name="item_share">SHARE</string>
     <string name="item_more">SEE MORE</string>
+
+    <string name="item_title">Introduce title...</string>
+
+    <string-array name="images_array">
+        <item>Alienware</item>
+        <item>Mac</item>
+        <item>Microwave</item>
+        <item>Refrigerator</item>
+        <item>Pillows</item>
+        <item>Sheets</item>
+    </string-array>
+
 </resources>

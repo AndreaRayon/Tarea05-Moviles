@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityItem">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/fab_margin">
+
+        <Spinner
+            android:id="@+id/activity_image_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:entries="@array/images_array"/>
+       <EditText
+           android:id="@+id/activity_item_title"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/item_title"
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:layout_marginBottom="@dimen/fab_margin"/>
+        <Spinner
+            android:id="@+id/activity_item_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_margin"/>
+        <Spinner
+            android:id="@+id/activity_item_store"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_margin"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_item_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/activity_product_save"
+        />
+</RelativeLayout>
