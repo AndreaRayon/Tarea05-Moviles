@@ -37,7 +37,7 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_custom, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = rootView.findViewById(R.id.fragment_recycler);
         return rootView;
     }

@@ -36,8 +36,7 @@ public class FragmentTechnology extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_custom, container, false);
-        recyclerView =
-                view.findViewById(R.id.fragment_recycler);
+        recyclerView = view.findViewById(R.id.fragment_recycler);
 
         return view;
     }
