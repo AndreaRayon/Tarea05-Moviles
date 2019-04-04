@@ -15,7 +15,7 @@ public class ControlCategory {
 
     public ArrayList<Category> getCategories(DataBaseHandler dh){
         ArrayList<Category> categories = new ArrayList<>();
-        String select = "SELECT " + KEY_CATEGORY_ID + ", " + KEY_CATEGORY_NAME + "FROM "
+        String select = "SELECT " + KEY_CATEGORY_ID + ", " + KEY_CATEGORY_NAME + " FROM "
                 + TABLE_CATEGORY;
         SQLiteDatabase db = dh.getReadableDatabase();
         Cursor cursor = db.rawQuery(select, null);

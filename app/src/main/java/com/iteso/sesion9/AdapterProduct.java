@@ -40,10 +40,11 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        holder.mProductTitle.setText( mDataSet.get(position).getTitle());
-        holder.mProductStore.setText(mDataSet.get(position).getStore());
-        holder.mProductLocation.setText(mDataSet.get(position).getLocation());
-        holder.mProductPhone.setText(mDataSet.get(position).getPhone());
+        holder.mProductTitle.setText( mDataSet.get(holder.getAdapterPosition()).getTitle());
+        holder.mProductStore.setText(mDataSet.get(holder.getAdapterPosition()).getStore().getName());
+        holder.mProductLocation.setText(mDataSet.get(holder.getAdapterPosition()).getStore().getCity().getName());
+        holder.mProductPhone.setText(mDataSet.get(holder.getAdapterPosition()).getStore().getPhone());
+
         switch(mDataSet.get(holder.getAdapterPosition()).getImage()){
             case Constant.TYPE_MAC:
                 holder.mProductImage.setImageResource(R.drawable.mac); break;
@@ -76,7 +77,7 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL,
-                        Uri.parse("tel:" + mDataSet.get(holder.getAdapterPosition()).getPhone()));
+                        Uri.parse("tel:" + mDataSet.get(holder.getAdapterPosition()).getStore().getPhone()));
                 context.startActivity(intent);
 
             }

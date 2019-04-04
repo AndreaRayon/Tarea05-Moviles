@@ -36,7 +36,7 @@ public class ActivityProduct extends AppCompatActivity {
 
         fragment = getIntent().getExtras().getInt(Constant.EXTRA_FRAGMENT, -1);
 
-        save.setOnClickListener(new View.OnClickListener() {
+  /*      save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 itemProduct.setTitle(title.getText().toString());
@@ -50,7 +50,7 @@ public class ActivityProduct extends AppCompatActivity {
                 setResult(RESULT_OK, intent);
                 finish();
             }
-        });
+        });*/
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +60,7 @@ public class ActivityProduct extends AppCompatActivity {
             }
         });
 
-        if (getIntent().getExtras() != null) {
+   /*     if (getIntent().getExtras() != null) {
             itemProduct = getIntent().getParcelableExtra(Constant.EXTRA_PRODUCT);
             if (itemProduct != null) {
                 title.setText(itemProduct.getTitle());
@@ -91,6 +91,6 @@ public class ActivityProduct extends AppCompatActivity {
                 image.setImageBitmap(bitmap);
             }
         }
-
+*/
     }
 }
