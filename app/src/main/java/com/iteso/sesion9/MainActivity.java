@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.iteso.sesion9.beans.ItemProduct;
 import com.iteso.sesion9.tools.Constant;
 
 public class MainActivity extends AppCompatActivity {
@@ -156,23 +157,43 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        ItemProduct itemProduct;
         switch (requestCode){
             case Constant.ACTIVITY_DETAIL:
                 if(resultCode == RESULT_OK){
-                    if(data.getExtras() != null) {
+              //      if(data.getExtras() != null) {
                         int fragment = data.getExtras().getInt(Constant.EXTRA_FRAGMENT);
                         switch (fragment) {
                             case Constant.FRAGMENT_TECHNOLOGY:
                                 fragmentTechnology.onActivityResult(requestCode, resultCode, data);
+                                if(data != null){
+                                    itemProduct = data.getParcelableExtra("ITEM");
+                                    if(itemProduct.getCategory().getName().equalsIgnoreCase("TECHNOLOGY")) {
+                                        fragmentTechnology.notifyDataSetChanged(itemProduct);
+                                    }
+                                }
                                 break;
+
                             case Constant.FRAGMENT_HOME:
                                 fragmentHome.onActivityResult(requestCode, resultCode, data);
+                                if(data != null){
+                                    itemProduct = data.getParcelableExtra("ITEM");
+                                    if(itemProduct.getCategory().getName().equalsIgnoreCase("HOME")) {
+                                        fragmentHome.notifyDataSetChanged(itemProduct);
+                                    }
+                                }
                                 break;
                             case Constant.FRAGMENT_ELECTRONICS:
                                 fragmentElectronics.onActivityResult(requestCode, resultCode, data);
+                                if(data != null){
+                                    itemProduct = data.getParcelableExtra("ITEM");
+                                    if(itemProduct.getCategory().getName().equalsIgnoreCase("ELECTRONICS")) {
+                                        fragmentElectronics.notifyDataSetChanged(itemProduct);
+                                    }
+                                }
                                 break;
                         }
-                    }
+              //      }
                 }
                 break;
         }

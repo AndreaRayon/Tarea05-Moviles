@@ -2,6 +2,8 @@ package com.iteso.sesion9;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -59,8 +61,15 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             case Constant.TYPE_MICRO:
                 holder.mProductImage.setImageResource(R.drawable.micro); break;
         }
-
-        holder.mEventLayout.setOnClickListener(new View.OnClickListener() {
+        switch(mDataSet.get(holder.getAdapterPosition()).getStore().getThumbnail()){
+            case Constant.TYPE_BESTBUY:
+                holder.mProductThumbnail.setImageResource(R.drawable.bestbuy); break;
+            case Constant.TYPE_LIVERPOOL:
+                holder.mProductThumbnail.setImageResource(R.drawable.liverpool); break;
+            case Constant.TYPE_OFFICE:
+                holder.mProductThumbnail.setImageResource(R.drawable.officedepot); break;
+        }
+    /*    holder.mEventLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(context, mDataSet.get(position).toString(),
@@ -71,7 +80,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 intent.putExtra(Constant.EXTRA_FRAGMENT, fragment);
                 ((MainActivity) context).startActivityForResult(intent, Constant.ACTIVITY_DETAIL);
             }
-        });
+        });*/
+        Bitmap bitmap = ((BitmapDrawable)holder.mProductImage.getDrawable()).getBitmap();
+        holder.mProductImage.setImageBitmap(bitmap);
 
         holder.mProductPhone.setOnClickListener(new View.OnClickListener() {
             @Override

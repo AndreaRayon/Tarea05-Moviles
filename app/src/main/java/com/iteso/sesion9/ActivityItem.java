@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.iteso.sesion9.beans.Category;
 import com.iteso.sesion9.beans.ItemProduct;
@@ -100,7 +101,7 @@ public class ActivityItem extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!title.getText().toString().isEmpty()){
+                if(notEmpty()){
                     ItemProduct itemProduct = new ItemProduct();
                     itemProduct.setCode(DataBaseHandler.ITEMPRODUCT_ID);
                     DataBaseHandler.ITEMPRODUCT_ID++;
@@ -120,4 +121,13 @@ public class ActivityItem extends AppCompatActivity {
         });
 
     }
+
+    private boolean notEmpty(){
+        if(title.getText().toString().isEmpty()){
+            Toast.makeText(ActivityItem.this, "Por favor completa todos los campos", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+
 }

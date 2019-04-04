@@ -36,6 +36,11 @@ public class City implements Parcelable {
         this.name = in.readString();
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public static final Creator<City> CREATOR = new Creator<City>() {
         @Override
         public City createFromParcel(Parcel in) {

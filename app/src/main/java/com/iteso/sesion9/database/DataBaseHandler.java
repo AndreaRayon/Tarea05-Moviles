@@ -33,7 +33,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_CITY_TABLE);
 
         String CREATE_CATEGORY_TABLE = "CREATE TABLE " + TABLE_CATEGORY + "("
-                + KEY_CATEGORY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_CATEGORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_CATEGORY_NAME + " TEXT)";
         db.execSQL(CREATE_CATEGORY_TABLE);
 
@@ -65,14 +65,15 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     }
 
     public void addValues(SQLiteDatabase db){
-        db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_NAME + ") VALUES ('TECHNOLOGY')");
-        db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_NAME + ") VALUES ('HOME')");
-        db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_NAME + ") VALUES ('ELECTRONICS')");
+        db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_ID + "," + KEY_CATEGORY_NAME + ") VALUES (1, 'TECHNOLOGY')");
+        db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_ID + "," + KEY_CATEGORY_NAME + ") VALUES (2, 'HOME')");
+        db.execSQL("INSERT INTO " + TABLE_CATEGORY + " (" + KEY_CATEGORY_ID + "," + KEY_CATEGORY_NAME + ") VALUES (3, 'ELECTRONICS')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_ID + "," + KEY_CITY_NAME + ") VALUES (1, 'Guadalajara')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_ID + "," + KEY_CITY_NAME + ") VALUES (2, 'San Pedro Tlaquepaque')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_ID + "," + KEY_CITY_NAME + ") VALUES (3, 'Tlajomulco')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_ID + "," + KEY_CITY_NAME + ") VALUES (4, 'Tonalá')");
         db.execSQL("INSERT INTO " + TABLE_CITY + " (" + KEY_CITY_ID + "," + KEY_CITY_NAME + ") VALUES (5, 'Zapopan')");
+
     }
 
     @Override
@@ -82,6 +83,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                 upgradeVersion2(db);
             case 2:
                 upgradeVersion3(db);
+            case 3:
+                upgradeVersion4(db);
                 break;
         }
     }
@@ -89,6 +92,9 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     }
     public void upgradeVersion3(SQLiteDatabase db) {
+
+    }
+    public void upgradeVersion4(SQLiteDatabase db) {
 
     }
 

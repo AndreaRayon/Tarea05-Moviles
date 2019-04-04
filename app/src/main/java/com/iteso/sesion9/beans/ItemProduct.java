@@ -100,7 +100,7 @@ public class ItemProduct implements Parcelable{
         this.code = in.readInt();
         this.title = in.readString();
         this.store = in.readParcelable(Store.class.getClassLoader());
-        this.category = in.readParcelable(Store.class.getClassLoader());
+        this.category = in.readParcelable(Category.class.getClassLoader());
         this.description = in.readString();
         this.image = (Integer) in.readValue(Integer.class.getClassLoader());
     }

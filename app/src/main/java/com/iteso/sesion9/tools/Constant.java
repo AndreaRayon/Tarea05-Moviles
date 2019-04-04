@@ -8,6 +8,10 @@ public class Constant {
     public static final int TYPE_REFRIGERATOR = 4;
     public static final int TYPE_MICRO = 5;
 
+    public static final int TYPE_BESTBUY = 0;
+    public static final int TYPE_LIVERPOOL = 1;
+    public static final int TYPE_OFFICE = 2;
+
     public static final String EXTRA_PRODUCT = "PRODUCT";
     public static final String EXTRA_FRAGMENT = "FRAGMENT";
     public static final int FRAGMENT_TECHNOLOGY = 0;

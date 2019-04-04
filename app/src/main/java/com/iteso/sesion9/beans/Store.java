@@ -83,7 +83,7 @@ public class Store implements Parcelable {
 
     @Override
     public String toString() {
-        return name + "," ;
+        return name + "," + city.getName().toUpperCase();
     }
 
     protected Store(Parcel in) {
